@@ -11,7 +11,7 @@
     // Clave donde se guardan los datos en el navegador (localStorage).
     storageKey: 'asistencia-ofrendas-2026',
     // Alumnos que se crean la primera vez que abres la app.
-    defaultStudents: ['Maria Jose', 'Gabriel Valentino', 'Rosaly H.', 'Luciana', 'Cecia'],
+    defaultStudents: [],
     // Librería para generar el Excel. Se descarga solo cuando pulsas "Descargar Excel".
     xlsxUrl: 'https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js',
     // PEGA AQUÍ TU URL DE GOOGLE APPS SCRIPT
