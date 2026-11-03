@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="es" data-bs-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Asistencia y ofrendas 2026</title>
+  <meta name="description" content="Registro personal de asistencia, puntos y ofrenda por clase, con acumulado por alumno.">
+  <meta name="theme-color" content="#1f3a6e">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+
+  <script src="js/theme.js"></script>
+</head>
+<body>
+  <main class="container app">
+    <header class="mb-4">
+      <p class="eyebrow mb-1">Libro de clase · 2026</p>
+      <h1 class="app-title">Asistencia, puntos y ofrendas</h1>
+    </header>
+
+    <div id="notice" class="alert alert-warning d-none" role="status"></div>
+
+    <ul class="nav nav-tabs mb-4" id="tabs" role="tablist">
+      <li class="nav-item" role="presentation"><button type="button" class="nav-link" id="tab-registro" data-tab="registro" role="tab" aria-controls="pane-registro">Registrar clase</button></li>
+      <li class="nav-item" role="presentation"><button type="button" class="nav-link" id="tab-acumulado" data-tab="acumulado" role="tab" aria-controls="pane-acumulado">Acumulado</button></li>
+      <li class="nav-item" role="presentation"><button type="button" class="nav-link" id="tab-historial" data-tab="historial" role="tab" aria-controls="pane-historial">Historial <span class="badge rounded-pill text-bg-secondary" id="count-historial">0</span></button></li>
+      <li class="nav-item" role="presentation"><button type="button" class="nav-link" id="tab-alumnos" data-tab="alumnos" role="tab" aria-controls="pane-alumnos">Alumnos</button></li>
+      <li class="nav-item" role="presentation"><button type="button" class="nav-link" id="tab-datos" data-tab="datos" role="tab" aria-controls="pane-datos">Datos</button></li>
+    </ul>
+
+    <div class="tab-content">
+      <section class="tab-pane" id="pane-registro" role="tabpanel" aria-labelledby="tab-registro">
+        <div class="row g-3 mb-2">
+          <div class="col-12 col-sm-6 col-lg-3">
+            <label class="form-label" for="f-date">Fecha</label>
+            <input class="form-control" type="date" id="f-date">
+          </div>
+          <div class="col-12 col-sm-6 col-lg-3">
+            <label class="form-label" for="f-teacher">Maestro</label>
+            <input class="form-control" type="text" id="f-teacher" maxlength="60" placeholder="Ej. Sara Cardenas" autocomplete="off">
+          </div>
+          <div class="col-12 col-lg-3">
+            <label class="form-label" for="f-title">Título de la clase</label>
+            <input class="form-control" type="text" id="f-title" maxlength="120" placeholder="Ej. La creación" autocomplete="off">
+          </div>
+          <div class="col-12 col-lg-3">
+            <label class="form-label" for="f-offering">Ofrenda del día</label>
+            <div class="input-group">
+              <span class="input-group-text">S/</span>
+              <input class="form-control text-end" type="number" id="f-offering" min="0" step="0.1" inputmode="decimal" placeholder="0.00">
+            </div>
+          </div>
+        </div>
+        <p class="text-body-secondary small mb-3" id="class-hint"></p>
+        <div id="roll"></div>
+      </section>
+
+      <section class="tab-pane" id="pane-acumulado" role="tabpanel" aria-labelledby="tab-acumulado"></section>
+      <section class="tab-pane" id="pane-historial" role="tabpanel" aria-labelledby="tab-historial"></section>
+      <section class="tab-pane" id="pane-alumnos" role="tabpanel" aria-labelledby="tab-alumnos"></section>
+      <section class="tab-pane" id="pane-datos" role="tabpanel" aria-labelledby="tab-datos"></section>
+    </div>
+  </main>
+
+  <div class="toast-container position-fixed bottom-0 start-50 translate-middle-x p-3">
+    <div id="toast" class="toast border-0 text-bg-dark" role="status" aria-live="polite" aria-atomic="true">
+      <div class="toast-body fw-semibold" id="toast-msg"></div>
+    </div>
+  </div>
+
+  <script src="js/config.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/stats.js"></script>
+  <script src="js/export.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
